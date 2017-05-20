@@ -7,7 +7,7 @@ from .models import Registrado
 
 # Create your views here.
 def inicio(request):
-	titulo ="HOLA"
+	titulo ="Bienvenid@s"
 	if request.user.is_authenticated():
 		titulo = "Bienvenid@ %s" %(request.user)
 	form = RegModelForm(request.POST or None)
@@ -45,6 +45,7 @@ def inicio(request):
 	return render(request, "inicio.html", context)
 
 def contact(request):
+	titulo = "Contacto"
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
 	# 	for key, value in form.cleaned_data.iteritems():
@@ -69,6 +70,7 @@ def contact(request):
 	# 	print email, mensaje, nombre
 	context = {
 		"form": form,
+		"titulo": titulo,
 	}
 	return render(request, "forms.html", context)
 
