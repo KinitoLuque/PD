@@ -1,9 +1,9 @@
 body {
-  min-height: 2000px;
+  min-height: 750px !important;
 }
 
 .navbar-static-top {
-  margin-bottom: 0px;
+  margin-bottom: 0px !important;
 }
 
 .navbar-default {

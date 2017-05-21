@@ -34,14 +34,11 @@ def inicio(request):
 				"titulo": "Gracias %s!" %(email)
 			}
 
-		print instance
-		print instance.timestamp
-		# form_data = form.cleaned_data
-		# abc = form_data.get("email")
-		# abc2 = form_data.get("nombre")
-		# obj = Registrado.objects.create(email=abc, nombre=abc2)
-
-
+	if request.user.is_authenticated() and request.user.is_staff:
+		queryset = Registrado.objects.all().order_by("-timestamp") #.filter(nombre__iexact="kinito")
+		context = {
+			"queryset": queryset,
+		}
 	return render(request, "inicio.html", context)
 
 def contact(request):
